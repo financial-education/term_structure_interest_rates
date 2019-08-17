@@ -54,6 +54,56 @@
 	  </ol>
 	</section>
 
+
+
+	<section>
+	  <canvas data-chart="line">
+Maturity, 1, 2, 3, 4
+Yield (%), 2, 2.5, 4, 6
+<!-- 
+{ 
+ "data" : {
+  "datasets" : [{ "borderColor": "#99ff66" } ]
+ }
+}
+-->
+</canvas>
+	</section>
+	<section>
+	     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Maturity', 'Yield (%)'],
+          ['1',  2],
+          ['2',  2.5],
+          ['3',  4],
+          ['4',  6]
+        ]);
+
+        var options = {
+          title: 'Term Structure of Interest Rates',
+            legend: { position: 'bottom' },
+        hAxis: {
+          title: 'Maturity'
+        },
+        vAxis: {
+            title: 'Yield'
+	},
+        backgroundColor: '#bfbfbf'
+        };
+
+        var chart = new google.visualization.AreaChart(document.getElementById('curve_chart'));
+
+        chart.draw(data, options);
+      }
+    </script>
+<div id="curve_chart" style="width: 100%; height: 100%"></div>
+	</section>
+
 	<section>
 	  <h3>Term Structure != Yield Curve</h3>
 	  <p align="left">The yield curve is the annualized yield on coupon bonds, and so this does not tell us the exact return/discount rate.  Remember coupon bonds have <span class="fragment highlight-red">reinvestment risk</span>.</p>
@@ -81,12 +131,28 @@
 
 	<section>	
 	  <h3>Pure Expectations</h3>
-	
-	</section>	
+	  <p align="left">Say, for example, you are going to invest in zero-coupon default-free bonds for 2 years.  Pure expectations says you will earn the <span class="fragment highlight-green">same return</span> if you invest in a two year bond, or you invest in a 1 year bond, and reinvest your money in 1 year in another 1 year bond.</p>
+	</section>
+
+	<section>
+	  <h3>Algebraically</h3>
+	  $$(1 + r_{2,0})^2 = (1 + r_{1,0})(1 + f_{1,1})$$
+	  <p align="left">where $r_{2,0}$ is the 2 year rate today, $r_{1,0}$ is the 1 year rate today, and $f_{1,1}$ is the <span class="fragment highlight-green">expected</span> 1 year rate in 1 year.</p>
+	</section>
+
+	<section>
+	  <p align="left">This is the same regardless of maturity.  So pure expectations would say a 10 year zero coupon will pay the same as investing in a 3 year zero coupon, and in 3 years reinvesting in a 7 year zero coupon bond (or a 6 year and in 6 years reinvesting in a 4 year bond).</p>
+	  $$(1 + r_{10,0})^{10} = (1 + r_{3,0})^3(1 + f_{7,3})^7$$
+	  <p align="left">or</p>
+	  $$(1 + r_{10,0})^{10} = (1 + r_{6,0})^6(1 + f_{4,6})^4$$	  
+	</section>
 	
 	
 	<section>	
-	  <h3></h3>
+	  <h3>Solving for the Forward Rate</h3>
+	  <p align="left">Take the last equation on the previous slide.  We can solve it for <i>f</i>:</p>
+
+$$f_{4,6} = \left(\frac{(1 + r_{10,0})^{10}}{(1 + r_{6,0})^6}\right)^{1/4} - 1$$
 	
 	</section>	
 	
@@ -110,7 +176,57 @@
 	<section>	
 	  <h3>Liquidity Premium</h3>
 	  
-	</section>	
+	</section>
+	
+
+<!-- 	<section> -->
+<!--     <script type="text/javascript"> -->
+<!--       google.charts.load('current', {'packages':['corechart']}); -->
+<!--       google.charts.setOnLoadCallback(drawChart); -->
+
+<!--       function drawChart() { -->
+<!--         var data = google.visualization.arrayToDataTable([ -->
+<!--             ['Maturity', 'Yield Pure Expectations', 'With Liquidity Premium'], -->
+<!--             ['1',  2, 2.4], -->
+<!--             ['2',  2.5, 3], -->
+<!--             ['3',  4, 4.7], -->
+<!--             ['4',  6, 7.1] -->
+<!--         ]); -->
+
+<!--         var options = { -->
+<!--           title: 'Term Structure of Interest Rates', -->
+<!--             legend: { position: 'bottom' }, -->
+<!--         hAxis: { -->
+<!--           title: 'Maturity' -->
+<!--         }, -->
+<!--         vAxis: { -->
+<!--             title: 'Yield' -->
+<!-- 	}, -->
+<!--         backgroundColor: '#bfbfbf' -->
+<!--         }; -->
+
+<!--         var chart = new google.visualization.AreaChart(document.getElementById('liq_prem')); -->
+
+<!--         chart.draw(data, options); -->
+<!--       } -->
+<!--     </script> -->
+<!-- <div id="liq_prem" style="width: 900px; height: 500px"></div> -->
+<!-- 	</section> -->
+
+		<section>
+	  <canvas data-chart="line">
+Maturity, 1, 2, 3, 4
+Pure Expectations Alone, 2, 2.5, 4, 6
+With Liquidity Premium, 2.2, 3.0, 4.8, 7.1
+<!-- 
+{ 
+ "data" : {
+  "datasets" : [{ "borderColor": "#99ff66" }, { "borderColor": "#ff5050" } ]
+ }
+}
+-->
+</canvas>
+	</section>
 
 
 	<section>	
@@ -264,7 +380,9 @@
   { src: 'plugin/menu/menu.js' },
   { src: 'plugin/notes/notes.js', async: true },
   <!-- { src: 'node_modules/reveal.js-menu/menu.js' }, -->
-  { src: 'plugin/chalkboard/chalkboard.js' },
+	  { src: 'plugin/chalkboard/chalkboard.js' },
+      { src: 'plugin/chart/Chart.min.js' },				
+		{ src: 'plugin/chart/csv2chart.js' },
   { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
   ],
   keyboard: {
