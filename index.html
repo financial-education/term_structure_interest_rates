@@ -46,16 +46,32 @@
 	</section>
 
 	<section>
-	  <h3>Interest Rates and Time</h3>
-	  <p align="left">The <i>Term Structure of Interest Rates</i> is the base set of rates we use to discount cash flows.  For every time period there is a rate. </p>
-	  <ul>
-	    <li>Since asset prices are the sum of discounted cash flows, Term Structure of Interest Rates is integral in <b class="fragment highlight-blue">asset pricing</b>.</li>
-	    <li>It also serves as an indicator of <b class="fragment highlight-blue">future economic conditions</b>.</li>
-	  </ul>
+	  <i>Term Structure of Interest Rates</i>
+	  <p align="left">Is the annualized yield on a default risk-free zero-coupon bond for each maturity.</p>
+	  <ol>
+	    <li>This tell us exactly how much 1 will be worth at each point in the future when invested without defualt risk.</li>
+	    <li>Conversely, this tells us how much a given future amount will be worth today.</li>
+	  </ol>
+	</section>
+
+	<section>
+	  <h3>Term Structure != Yield Curve</h3>
+	  <p align="left">The yield curve is the annualized yield on coupon bonds, and so this does not tell us the exact return/discount rate.  Remember coupon bonds have <span class="fragment highlight-red">reinvestment risk</span>.</p>
+	</section>
+
+	<section>
+	  <h3>Asset Pricing</h3>
+	  <p align="left">Since asset prices are the sum of discounted cash flows, and the term structure gives us the rate at which to discount these cash flows.</p>
+	</section>
+
+	<section>
+	  <h3>Recession Indicator</h3>
+	  <p align="left">We'll soon see that we can estimate future zero-coupon rates given the term structure.  If those future rates we estimate are low, they may be an indicator of an upcoming recession.</p>
 	</section>	
 
 	<section>	
 	  <h3>Theories of the Term Structure</h3>
+	  <p align="left">What follows are three common theories that seek to explain why the term structure may take a particular shape.</p>
 	<ol>
 	  <li>Pure Expectations</li>
 	  <li>Liquidity Premium</li>
@@ -81,16 +97,27 @@
 	</section>	
 	
 	<section>	
-	  <h3>Interactive Application</h3>
+    Enter 1 Year Zero-Coupon Rate (in %):	  <input type="text" placeholder="2%" id="input1" />
+    Enter 2 Year Zero-Coupon Rate (in %):         <input type="text" placeholder="5%" id="input2" />
+    <button onclick="myJsFunction()">Calculate the 1 Year Forward Rate in 1 Year</button>
 
+    <script src="src/pe1.js"></script>
+
+    <p> Forward Rate: <span id="out1"></span>%</p>
+	</section>
+
+
+	<section>	
+	  <h3>Liquidity Premium</h3>
+	  
 	</section>	
 
-	<section>
-<div class="stretch">
-<iframe src="https://micfm.shinyapps.io/term_structure_app1/" height="100%" width="100%"></iframe>
-	    </div>
-	</section>
+
+	<section>	
+	  <h3>Segmented Markets</h3>
 	
+	</section>	
+
 
   <section>
     <h3>Matt Brigida</h3>
