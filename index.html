@@ -175,7 +175,17 @@ $$f_{4,6} = \left(\frac{(1 + r_{10,0})^{10}}{(1 + r_{6,0})^6}\right)^{1/4} - 1$$
 
 	<section>	
 	  <h3>Liquidity Premium</h3>
-	  
+	  <p align="left">Bonds with a greater maturity generally have higher levels of interest rate risk. So it is more risky to buy a 2 year bond than buy a 1 year bond, and reinvest in another 1 year bond in 1 year.  If both strategies earn the same yield, why would anyone buy the 2 year bond?</p>
+	</section>
+	<section>
+	  <p align="left">The Liquidity Premium theory says the 2 year bond should return more than successively investing in 1 year bonds.  It doesn't say <i>much</i> however.</p>
+	  	  $$(1 + r_{2,0})^2 = (1 + r_{1,0})(1 + f_{1,1}) + LP_2$$
+		  <p align="left">where $LP_2$ is the liquidity premium on a 2 year bond.</p>
+	</section>
+
+	<section>
+	  <p align="left">Since interest rate risk increases in maturity, we have:</p>
+	  $$LP_1 < LP_2 < LP_3 < .... LP_n$$
 	</section>
 	
 
@@ -213,8 +223,8 @@ $$f_{4,6} = \left(\frac{(1 + r_{10,0})^{10}}{(1 + r_{6,0})^6}\right)^{1/4} - 1$$
 <!-- <div id="liq_prem" style="width: 900px; height: 500px"></div> -->
 <!-- 	</section> -->
 
-		<section>
-	  <canvas data-chart="line">
+<section>
+<canvas data-chart="line">
 Maturity, 1, 2, 3, 4
 Pure Expectations Alone, 2, 2.5, 4, 6
 With Liquidity Premium, 2.2, 3.0, 4.8, 7.1
@@ -225,7 +235,8 @@ With Liquidity Premium, 2.2, 3.0, 4.8, 7.1
  }
 }
 -->
-</canvas>
+	  </canvas>
+	  <span align="center"><font color="#bfbfbf">Maturity</font></span>
 	</section>
 
 
