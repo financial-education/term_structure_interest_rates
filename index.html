@@ -43,10 +43,14 @@
 	    <p> MATT BRIGIDA </p>
 	    <p> Associate Professor of Finance (SUNY Polytechnic Institute) & Financial Education Advisor, Milken Institute </p>
 	  </section>
-	</section>
+  </section>
+  
+  <section>
+    <p align="left">Throughout this presentation we will refer to bills, notes, and bonds as collectively "bonds" for simplicity.</p>
+  </section>
 
 	<section>
-	  <i>Term Structure of Interest Rates</i>
+	  <h3>Term Structure of Interest Rates</h3>
 	  <p align="left">Is the annualized yield on a default risk-free zero-coupon bond for each maturity.</p>
 	  <ol>
 	    <li>This tell us exactly how much 1 will be worth at each point in the future when invested without defualt risk.</li>
@@ -54,9 +58,8 @@
 	  </ol>
 	</section>
 
-
-
 	<section>
+    <h4>Example Term Structure</h4>
 	  <canvas data-chart="line">
 Maturity, 1, 2, 3, 4
 Yield (%), 2, 2.5, 4, 6
@@ -68,8 +71,10 @@ Yield (%), 2, 2.5, 4, 6
 }
 -->
 </canvas>
-	</section>
-	<section>
+	  <span align="center"><font color="#bfbfbf">Maturity</font></span>
+  </section>
+
+<!-- 	<section>
 	     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
       google.charts.load('current', {'packages':['corechart']});
@@ -102,11 +107,11 @@ Yield (%), 2, 2.5, 4, 6
       }
     </script>
 <div id="curve_chart" style="width: 100%; height: 100%"></div>
-	</section>
+	</section> -->
 
 	<section>
 	  <h3>Term Structure != Yield Curve</h3>
-	  <p align="left">The yield curve is the annualized yield on coupon bonds, and so this does not tell us the exact return/discount rate.  Remember coupon bonds have <span class="fragment highlight-red">reinvestment risk</span>.</p>
+	  <p align="left">The yield curve is the annualized yield on coupon bonds, and so this does not tell us the exact return/discount rate.  Remember <span class="fragment highlight-red">coupon bonds have reinvestment risk</span>.</p>
 	</section>
 
 	<section>
@@ -116,7 +121,7 @@ Yield (%), 2, 2.5, 4, 6
 
 	<section>
 	  <h3>Recession Indicator</h3>
-	  <p align="left">We'll soon see that we can estimate future zero-coupon rates given the term structure.  If those future rates we estimate are low, they may be an indicator of an upcoming recession.</p>
+	  <p align="left">We'll soon see that we can estimate future zero-coupon rates given the term structure.  If those future rates we estimate are low, they <span class="fragment highlight-red">may be an indicator of an upcoming recession</span>.</p>
 	</section>	
 
 	<section>	
@@ -156,12 +161,6 @@ $$f_{4,6} = \left(\frac{(1 + r_{10,0})^{10}}{(1 + r_{6,0})^6}\right)^{1/4} - 1$$
 	
 	</section>	
 	
-	
-	<section>	
-	  <h3></h3>
-	
-	</section>	
-	
 	<section>	
     Enter 1 Year Zero-Coupon Rate (in %):	  <input type="text" placeholder="2%" id="input1" />
     Enter 2 Year Zero-Coupon Rate (in %):         <input type="text" placeholder="5%" id="input2" />
@@ -188,6 +187,13 @@ $$f_{4,6} = \left(\frac{(1 + r_{10,0})^{10}}{(1 + r_{6,0})^6}\right)^{1/4} - 1$$
 	  $$LP_1 < LP_2 < LP_3 < .... LP_n$$
 	</section>
 	
+  <section>
+    <p align="left">The theory gets its name because shorter-term bonds are also more <i>liquid</i> (they become cash sooner without loss of value) and thus require less of a premium.</p>
+  </section>
+
+<section>
+  <p align="left">The next slide contains a plot of the term structure by pure expectations, with an added liquidity premium.</p>
+</section>
 
 <!-- 	<section> -->
 <!--     <script type="text/javascript"> -->
@@ -239,12 +245,37 @@ With Liquidity Premium, 2.2, 3.0, 4.8, 7.1
 	  <span align="center"><font color="#bfbfbf">Maturity</font></span>
 	</section>
 
-
 	<section>	
 	  <h3>Segmented Markets</h3>
-	
+<p align="left">Often, the yield curve exhibits a shape that isn't explainible by the pure expectation or liquidity premium theories, and this is where segmented markets fits in.</p>	
 	</section>	
 
+  <section>
+<p align="left">The idea is that certain investors provide and demand funds at separate points on the term structure.  The term structure may behave differently at these various points as determined by the investors at each maturity.</p>
+<ul>
+  <li>Pension funds tend to provide funds at longer maturities.</li>
+  <li>Commercial banks often prefer to offer shorter-term loans to bettern match their liabilities.</li>
+</ul>
+  </section>
+
+  <section>
+<p align="left"><i>Segmented markets</i> may explain why points on the term structure may behave independently---the long end may increase with no change in short term yield for example.</p>
+<ul>
+  <li>Market participants will likely shift their supply/demand for funds along the term structure in response to significant deviations in yield differentials along the structure.</li>
+  <li>Further, we tend to observe the term structure changing along the curve---not independently.</li>
+</ul>
+  </section>
+
+  <section>
+    <h3>The term structure and other bond yields</h3>
+
+    <p align="left">Once we have the term structure, we can use it as a base rate to value corporate and other bonds.  We adjust the term structure rate for the particular bonds:</p>
+    <ul>
+      <li>Default Risk</li>
+      <li>Liquidity</li>
+      <li>Tax Status</li>
+    </ul>
+  </section>
 
   <section>
     <h3>Matt Brigida</h3>
